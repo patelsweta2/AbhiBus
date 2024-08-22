@@ -275,14 +275,14 @@ const buses = [
     "source": "64c8e5d3fc13ae5e50a53df4",
     "destination": "64c8e5d3fc13ae5e50a53df6",
     "boardingPoints": [
-      {"stopId": 101, "arrivalTime": 1693113600},
-      {"stopId": 102, "arrivalTime": 1693117200},
-      {"stopId": 103, "arrivalTime": 1693120800}
+      {"stopId": 1, "arrivalTime": 1693113600},
+      {"stopId": 5, "arrivalTime": 1693117200},
+      {"stopId": 2, "arrivalTime": 1693120800}
     ],
     "droppingPoints": [
-      {"stopId": 201, "arrivalTime": 1693135200},
-      {"stopId": 202, "arrivalTime": 1693138800},
-      {"stopId": 203, "arrivalTime": 1693142400}
+      {"stopId": 9, "arrivalTime": 1693135200},
+      {"stopId": 8, "arrivalTime": 1693138800},
+      {"stopId": 3, "arrivalTime": 1693142400}
     ],
     "prices": [
       {"seatNumber": "1A", "price": 1200},  // SLEEPER
@@ -301,14 +301,14 @@ const buses = [
     "source": "64c8e5d3fc13ae5e50a53df7",
     "destination": "64c8e5d3fc13ae5e50a53df8",
     "boardingPoints": [
-      {"stopId": 104, "arrivalTime": 1693200000},
-      {"stopId": 105, "arrivalTime": 1693203600},
-      {"stopId": 106, "arrivalTime": 1693207200}
+      {"stopId": 23, "arrivalTime": 1693200000},
+      {"stopId": 45, "arrivalTime": 1693203600},
+      {"stopId": 21, "arrivalTime": 1693207200}
     ],
     "droppingPoints": [
-      {"stopId": 204, "arrivalTime": 1693221600},
-      {"stopId": 205, "arrivalTime": 1693225200},
-      {"stopId": 206, "arrivalTime": 1693228800}
+      {"stopId": 26, "arrivalTime": 1693221600},
+      {"stopId": 27, "arrivalTime": 1693225200},
+      {"stopId": 28, "arrivalTime": 1693228800}
     ],
     "prices": [
       {"seatNumber": "2A", "price": 1300},  // SLEEPER
@@ -327,14 +327,14 @@ const buses = [
     "source": "64c8e5d3fc13ae5e50a53df9",
     "destination": "64c8e5d3fc13ae5e50a53dfa",
     "boardingPoints": [
-      {"stopId": 107, "arrivalTime": 1693286400},
-      {"stopId": 108, "arrivalTime": 1693290000},
-      {"stopId": 109, "arrivalTime": 1693293600}
+      {"stopId": 12, "arrivalTime": 1693286400},
+      {"stopId": 13, "arrivalTime": 1693290000},
+      {"stopId": 14, "arrivalTime": 1693293600}
     ],
     "droppingPoints": [
-      {"stopId": 207, "arrivalTime": 1693308000},
-      {"stopId": 208, "arrivalTime": 1693311600},
-      {"stopId": 209, "arrivalTime": 1693315200}
+      {"stopId": 15, "arrivalTime": 1693308000},
+      {"stopId": 16, "arrivalTime": 1693311600},
+      {"stopId": 17, "arrivalTime": 1693315200}
     ],
     "prices": [
       {"seatNumber": "3A", "price": 1400},  // SLEEPER
@@ -353,14 +353,14 @@ const buses = [
     "source": "64c8e5d3fc13ae5e50a53dfb",
     "destination": "64c8e5d3fc13ae5e50a53dfc",
     "boardingPoints": [
-      {"stopId": 110, "arrivalTime": 1693372800},
-      {"stopId": 111, "arrivalTime": 1693376400},
-      {"stopId": 112, "arrivalTime": 1693380000}
+      {"stopId": 18, "arrivalTime": 1693372800},
+      {"stopId": 19, "arrivalTime": 1693376400},
+      {"stopId": 20, "arrivalTime": 1693380000}
     ],
     "droppingPoints": [
-      {"stopId": 210, "arrivalTime": 1693394400},
-      {"stopId": 211, "arrivalTime": 1693398000},
-      {"stopId": 212, "arrivalTime": 1693401600}
+      {"stopId": 31, "arrivalTime": 1693394400},
+      {"stopId": 32, "arrivalTime": 1693398000},
+      {"stopId": 33, "arrivalTime": 1693401600}
     ],
     "prices": [
       {"seatNumber": "4A", "price": 1500},  // SLEEPER
@@ -379,14 +379,14 @@ const buses = [
     "source": "64c8e5d3fc13ae5e50a53dfd",
     "destination": "64c8e5d3fc13ae5e50a53dfe",
     "boardingPoints": [
-      {"stopId": 113, "arrivalTime": 1693459200},
-      {"stopId": 114, "arrivalTime": 1693462800},
-      {"stopId": 115, "arrivalTime": 1693466400}
+      {"stopId": 34, "arrivalTime": 1693459200},
+      {"stopId": 35, "arrivalTime": 1693462800},
+      {"stopId": 36, "arrivalTime": 1693466400}
     ],
     "droppingPoints": [
-      {"stopId": 213, "arrivalTime": 1693480800},
-      {"stopId": 214, "arrivalTime": 1693484400},
-      {"stopId": 215, "arrivalTime": 1693488000}
+      {"stopId": 37, "arrivalTime": 1693480800},
+      {"stopId": 38, "arrivalTime": 1693484400},
+      {"stopId": 39, "arrivalTime": 1693488000}
     ],
     "prices": [
       {"seatNumber": "5A", "price": 1600},  // SLEEPER

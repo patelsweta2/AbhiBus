@@ -136,3 +136,133 @@ const tripSchema = new mongoose.Schema({
         name:{type:String,required:true},
     }
 })
+```
+### Dummy Data for bus
+
+``` javascript
+const generateSeats = (rows, columns, type) => {
+    const seats = []; 
+    for (let row = 1; row <= rows; row++) {
+      for (let col = 1; col <= columns; col++) {
+        seats.push({
+          seatNumber: `${row}${String.fromCharCode(64 + col)}`,
+          type : type  
+        });
+      }
+    }
+    return seats;
+  };
+
+const buses = [
+    {
+        busPartner: "olaBus", 
+        busType: ["AC", "SLEEPER", "SEATER"], 
+        amenities: ["WiFi", "Charging Point"],
+        busNumber: 'DL52RS5475',
+        layout: {
+            lowerDeck : generateSeats(6, 4, 'SEATER'), 
+            upperDeck: generateSeats(3, 3, 'SLEEPER')  
+        }
+ 
+    }, 
+    {
+        busPartner: "NEOGOBUS", 
+        busType: ["AC", "SEATER"], 
+        amenities: ["Charging Point", "EMERGENCY_EXIT", "WATER"],
+        busNumber: '51695452',
+        layout: {
+            lowerDeck : generateSeats(10, 6, 'SEATER'), 
+            // upperDeck: generateSeats(3, 3, 'SLEEPER')  
+        }
+ 
+    }, 
+    {
+        busPartner: "UBERGO", 
+        busType: ["AC", "SEATER"], 
+        amenities: ["Charging Point", "EMERGENCY_EXIT", "WATER"],
+        busNumber: '62458746',
+        layout: {
+            lowerDeck : generateSeats(5, 4, 'SLEEPER'), 
+            // upperDeck: generateSeats(3, 3, 'SLEEPER')  
+        }
+ 
+    }, 
+    {
+        busPartner: "IRCTC", 
+        busType: ["AC", "SLEEPER"],  
+        amenities: ["Charging Point", "EMERGENCY_EXIT", "WATER", "FOOD"],
+        busNumber: '45815668',
+        layout: {
+            lowerDeck : generateSeats(5, 4, 'SLEEPER'), 
+            upperDeck: generateSeats(5, 4, 'SLEEPER')  
+        }
+ 
+    }, 
+    {
+        busPartner: "GOVT BUS SERVICES", 
+        busType: ["NON_AC", "SEATER" ],  
+        amenities: [""],
+        busNumber: '956482',
+        layout: {
+            lowerDeck : generateSeats(10, 6, 'SEATER'), 
+            // upperDeck: generateSeats(5, 4, 'SLEEPER')  
+        }
+ 
+    },
+      {
+        busPartner: "KSRTC", 
+        busType: ["AC", "SEATER" ],  
+        amenities: [""],
+        busNumber: '4561235',
+        layout: {
+            lowerDeck : generateSeats(10, 6, 'SEATER'), 
+            // upperDeck: generateSeats(5, 4, 'SLEEPER')  
+        }
+ 
+    },
+      {
+        busPartner: "GSRTC", 
+        busType: ["AC", "SLEEPER", "SETAER" ],  
+        amenities: ["WiFi","Charging Point", "Water", "Food"],
+        busNumber: '7427036',
+        layout: {
+            lowerDeck : generateSeats(6, 4, 'SEATER'), 
+             upperDeck: generateSeats(3, 3, 'SLEEPER')  
+        }
+ 
+    },
+      {
+        busPartner: "OSRTC", 
+        busType: ["NON_AC", "SLEEPER", "SEATER" ],  
+        amenities: ["WATER", "Charging Point"],
+        busNumber: '9345189',
+        layout: {
+            lowerDeck : generateSeats(5, 4, 'SEATER'), 
+            upperDeck: generateSeats(5, 4, 'SLEEPER')  
+        }
+ 
+    },
+      {
+        busPartner: "Orange Tours and Travels", 
+        busType: ["NON_AC", "SLEEPER" ],  
+        amenities: ["Charging Point","WiFi"],
+        busNumber: '98236781',
+        layout: {
+            lowerDeck : generateSeats(5, 4, 'SEATER'), 
+            upperDeck: generateSeats(5, 4, 'SLEEPER')  
+        }
+ 
+    },
+      {
+        busPartner: "zingbus plus", 
+        busType: ["NON_AC", "SLEEPER" ],  
+        amenities: ["Charging Point", "Water", "Food"],
+        busNumber: '2358918',
+        layout: {
+            lowerDeck : generateSeats(6, 4, 'SEATER'), 
+             upperDeck: generateSeats(5, 4, 'SLEEPER')  
+        }
+ 
+    }, 
+ 
+]

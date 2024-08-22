@@ -1,173 +1,136 @@
-# AbhiBus
-
-### user Schema
-
 ``` javascript
-const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-  Name: {
+
+const stopPoint = {
+      stopId:{
+        type: Number,
+        required:true,
+      },
+      title: {
+        type: String,
+        required: true,
+      },
+      directions: {
+        type: String,
+        required: true,
+      },
+      lat: {
+        type: Number,
+      },
+      lng: {
+        type: Number,
+      },
+    },
+
+
+
+
+// City Schema
+const citySchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
-    default: "",
   },
-  emailId: {
+  state: {
     type: String,
     required: true,
-    default: "",
   },
-  password: {
-    type: String,
-    required: true,
-    default: "",
+  lat: {
+    type: Number,
   },
-  phoneNumber: {
-    type: String,
-    required: true,
-    default: "",
+  lng: {
+    type: Number,
   },
-  gender: {
-    type: String,
-    enum: ["male", "female"],
-  },
-  userType: {
-    type: String,
-    enum: ["user", "admin"],
-    default: "user",
-  },
+  stopPoints: [
+    stopPoint
+  ],
+  pinCode:{
+    type:Number,
+    required:true,
+  }
 });
 
-const User = mongoose.model("User", userSchema);
+//
 
-module.exports = User;
-```
-### Bus route Schema
+const busTypes={
+    AC:"AC",
+    SLEEPER: "SLEEPER",
+    SEATER:"SEATER",
+    NON_AC:"NON_AC"
+}
 
-``` javascript
+const amenities = ["WIFI","LIVE_TRACKING","CHARGING_PORT","EMERGENCY_EXIT","WATER"]
 
-const mongoose = require("mongoose");
 
-const routeSchema = new mongoose.Schema({
-  Pickup: {
-    type: String,
-    enum: [
-      "Delhi",
-      "Mumbai",
-      "Bangalore",
-      "Pune",
-      "Hyderabad",
-      "Trivendrum",
-      "Kochi",
-      "Patna",
-      "Shimla",
-      "Sikkim",
-      "Ranchi",
-    ],
-    required: true,
-    default: "",
-  },
-  destination: {
-    type: String,
-    enum: [
-      "Delhi",
-      "Mumbai",
-      "Bangalore",
-      "Pune",
-      "Hyderabad",
-      "Trivendrum",
-      "Kochi",
-      "Patna",
-      "Shimla",
-      "Sikkim",
-      "Ranchi",
-    ],
-    required: true,
-    default: "",
-  },
-  Time: {
-    type: Number,
-    required: true,
-    default: "",
-  },
-  Long: {
-    type: Number,
-  },
-  Lat: {
-    type: Number,
-  },
-});
+const SeatTypes = [ "SEATER", "SLEEPER" ]
 
-module.exports = mongoose.model("Route", routeSchema);
-```
-### BusSchema 
+const Seat = {
+            seatNumber: {type: String, required: true},
+            row: { type: Number, required: true},
+            column: { type: Number, required: true },
+            type: { type: String, enum: SeatTypes, required: true }
+        }
 
-``` javascript
-const mongoose = require("mongoose");
-
+// Bus Schema
 const busSchema = new mongoose.Schema({
-  TypeOfBus: {
+  busPartner: {
     type: String,
-    enum: ["AC", "Non-Ac", "Sleeper", "Luxury"],
-    required: true,
+    required: [true, "Bus name is required"],
   },
-  Name: {
+  busType: {
     type: String,
-    required: true,
+    enum: [busTypes.AC,busTypes.SLEEPER,busTypes.SEATER,busTypes.NON_AC],
+    required: [true, "Bus Type is required"],
   },
-  BusNumber: {
+  amenities: {
     type: String,
-    required: true,
-  },
-  NoOfSeats: {
-    type: Number,
-    required: true,
-  },
-  TypeOfSeats: {
-    type: String,
-    enum: ["male", "female", "single", "double"],
-    required: true,
-  },
-  BoardingPoints: {
-    type: String,
-    required: true,
-  },
-  droppingPoints: {
-    type: String,
-    required: true,
-  },
-  Amenities: {
-    type: String,
-    enum: [
-      "Seat belt",
-      "Wi-fi",
-      "child seating",
-      "Recliners",
-      "Power outlets",
-      "Private entrance",
-      "Emergency exit",
-    ],
+    enum:amenities,
     default: "",
   },
-  status: {
+  busNumber: {
     type: String,
-    enum: ["on-time", "delayed", "cancelled"],
-    default: "on-time",
+    required: [true, "License no. is required"],
   },
-  DepartureTime: {
-    type: String,
-    enum: ["Before 6 am", "6 am to 12 pm", "12pm to 6 am", "After 6pm"],
-    default: "",
-  },
-  ArrivalTime: {
-    type: String,
-    enum: ["Before 6 am", "6 am to 12 pm", "12pm to 6 am", "After 6pm"],
-    default: "",
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
+  layout:{
+    upperDeck:{type:[Seat]},
+    lowerDeck:{type:[Seat],required:true},
+  }
 });
 
-module.exports = mongoose.model("Bus", busSchema);
-```
+
+
+// trip schema
+const tripSchema = new mongoose.Schema({
+    source:{
+        ref: 'Citie',
+        type: mongoose.Schema.type.ObjectId,
+    },
+    destination:{
+        ref:'Citie',
+        type: mongoose.Schema.type.ObjectId
+    },
+    boardingPoints:[
+        {
+            stopId:{type:Number,required:true},
+            arrivalTime:{type:Number,required:true}               //use epoc time
+        }
+    ],
+    droppingPoints:[
+        {
+            stopId:{type:Number,required:true},
+            arrivalTime:{type:Number,required:true}               //use epoc time
+        }
+    ],
+    prices:[
+        {
+            seatNumber:{type:String,required:true},
+            price:{type:Number,required:true}
+        }
+    ],
+    startTime:{type:Number,required:true},
+    endTime:{type:Number,required:true},
+    driverDetails:{
+        contactNumber:{type:String,required:true},
+        name:{type:String,required:true},
+    }
+})

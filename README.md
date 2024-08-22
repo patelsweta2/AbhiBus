@@ -266,3 +266,140 @@ const buses = [
     }, 
  
 ]
+```
+### Trip data
+
+``` javascript
+[
+  {
+    "source": "64c8e5d3fc13ae5e50a53df4",
+    "destination": "64c8e5d3fc13ae5e50a53df6",
+    "boardingPoints": [
+      {"stopId": 101, "arrivalTime": 1693113600},
+      {"stopId": 102, "arrivalTime": 1693117200},
+      {"stopId": 103, "arrivalTime": 1693120800}
+    ],
+    "droppingPoints": [
+      {"stopId": 201, "arrivalTime": 1693135200},
+      {"stopId": 202, "arrivalTime": 1693138800},
+      {"stopId": 203, "arrivalTime": 1693142400}
+    ],
+    "prices": [
+      {"seatNumber": "1A", "price": 1200},  // SLEEPER
+      {"seatNumber": "1B", "price": 1200},  // SLEEPER
+      {"seatNumber": "1C", "price": 1000},  // SEATER
+      {"seatNumber": "1D", "price": 1000}   // SEATER
+    ],
+    "startTime": 1693106400,
+    "endTime": 1693149600,
+    "driverDetails": {
+      "contactNumber": "9876543210",
+      "name": "Rajesh Kumar"
+    }
+  },
+  {
+    "source": "64c8e5d3fc13ae5e50a53df7",
+    "destination": "64c8e5d3fc13ae5e50a53df8",
+    "boardingPoints": [
+      {"stopId": 104, "arrivalTime": 1693200000},
+      {"stopId": 105, "arrivalTime": 1693203600},
+      {"stopId": 106, "arrivalTime": 1693207200}
+    ],
+    "droppingPoints": [
+      {"stopId": 204, "arrivalTime": 1693221600},
+      {"stopId": 205, "arrivalTime": 1693225200},
+      {"stopId": 206, "arrivalTime": 1693228800}
+    ],
+    "prices": [
+      {"seatNumber": "2A", "price": 1300},  // SLEEPER
+      {"seatNumber": "2B", "price": 1300},  // SLEEPER
+      {"seatNumber": "2C", "price": 1100},  // SEATER
+      {"seatNumber": "2D", "price": 1100}   // SEATER
+    ],
+    "startTime": 1693192800,
+    "endTime": 1693236000,
+    "driverDetails": {
+      "contactNumber": "9123456789",
+      "name": "Arvind Singh"
+    }
+  },
+  {
+    "source": "64c8e5d3fc13ae5e50a53df9",
+    "destination": "64c8e5d3fc13ae5e50a53dfa",
+    "boardingPoints": [
+      {"stopId": 107, "arrivalTime": 1693286400},
+      {"stopId": 108, "arrivalTime": 1693290000},
+      {"stopId": 109, "arrivalTime": 1693293600}
+    ],
+    "droppingPoints": [
+      {"stopId": 207, "arrivalTime": 1693308000},
+      {"stopId": 208, "arrivalTime": 1693311600},
+      {"stopId": 209, "arrivalTime": 1693315200}
+    ],
+    "prices": [
+      {"seatNumber": "3A", "price": 1400},  // SLEEPER
+      {"seatNumber": "3B", "price": 1400},  // SLEEPER
+      {"seatNumber": "3C", "price": 1200},  // SEATER
+      {"seatNumber": "3D", "price": 1200}   // SEATER
+    ],
+    "startTime": 1693279200,
+    "endTime": 1693322400,
+    "driverDetails": {
+      "contactNumber": "9988776655",
+      "name": "Sunil Sharma"
+    }
+  },
+  {
+    "source": "64c8e5d3fc13ae5e50a53dfb",
+    "destination": "64c8e5d3fc13ae5e50a53dfc",
+    "boardingPoints": [
+      {"stopId": 110, "arrivalTime": 1693372800},
+      {"stopId": 111, "arrivalTime": 1693376400},
+      {"stopId": 112, "arrivalTime": 1693380000}
+    ],
+    "droppingPoints": [
+      {"stopId": 210, "arrivalTime": 1693394400},
+      {"stopId": 211, "arrivalTime": 1693398000},
+      {"stopId": 212, "arrivalTime": 1693401600}
+    ],
+    "prices": [
+      {"seatNumber": "4A", "price": 1500},  // SLEEPER
+      {"seatNumber": "4B", "price": 1500},  // SLEEPER
+      {"seatNumber": "4C", "price": 1300},  // SEATER
+      {"seatNumber": "4D", "price": 1300}   // SEATER
+    ],
+    "startTime": 1693365600,
+    "endTime": 1693408800,
+    "driverDetails": {
+      "contactNumber": "8877665544",
+      "name": "Amit Patel"
+    }
+  },
+  {
+    "source": "64c8e5d3fc13ae5e50a53dfd",
+    "destination": "64c8e5d3fc13ae5e50a53dfe",
+    "boardingPoints": [
+      {"stopId": 113, "arrivalTime": 1693459200},
+      {"stopId": 114, "arrivalTime": 1693462800},
+      {"stopId": 115, "arrivalTime": 1693466400}
+    ],
+    "droppingPoints": [
+      {"stopId": 213, "arrivalTime": 1693480800},
+      {"stopId": 214, "arrivalTime": 1693484400},
+      {"stopId": 215, "arrivalTime": 1693488000}
+    ],
+    "prices": [
+      {"seatNumber": "5A", "price": 1600},  // SLEEPER
+      {"seatNumber": "5B", "price": 1600},  // SLEEPER
+      {"seatNumber": "5C", "price": 1400},  // SEATER
+      {"seatNumber": "5D", "price": 1400}   // SEATER
+    ],
+    "startTime": 1693452000,
+    "endTime": 1693495200,
+    "driverDetails": {
+      "contactNumber": "7766554433",
+      "name": "Vikram Chauhan"
+    }
+  }
+]
+```

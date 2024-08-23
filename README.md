@@ -140,131 +140,542 @@ const tripSchema = new mongoose.Schema({
 ### Dummy Data for bus
 
 ``` javascript
-const generateSeats = (rows, columns, type) => {
-    const seats = []; 
-    for (let row = 1; row <= rows; row++) {
-      for (let col = 1; col <= columns; col++) {
-        seats.push({
-          seatNumber: `${row}${String.fromCharCode(64 + col)}`,
-          type : type  
-        });
-      }
+[
+  {
+    "busPartner": "olaBus",
+    "busType": ["AC", "SLEEPER", "SEATER"],
+    "amenities": ["WiFi", "Charging Point"],
+    "busNumber": "DL52RS5475",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SEATER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SEATER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SEATER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SEATER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SEATER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SEATER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SEATER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SEATER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SEATER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SEATER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SEATER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SEATER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SEATER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SEATER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SEATER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SEATER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SEATER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SEATER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SEATER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SEATER"},
+        {"seatNumber": "6A", "row": 6, "column": 1, "type": "SEATER"},
+        {"seatNumber": "6B", "row": 6, "column": 2, "type": "SEATER"},
+        {"seatNumber": "6C", "row": 6, "column": 3, "type": "SEATER"},
+        {"seatNumber": "6D", "row": 6, "column": 4, "type": "SEATER"}
+      ],
+      "upperDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"}
+      ]
     }
-    return seats;
-  };
+  },
 
-const buses = [
-    {
-        busPartner: "olaBus", 
-        busType: ["AC", "SLEEPER", "SEATER"], 
-        amenities: ["WiFi", "Charging Point"],
-        busNumber: 'DL52RS5475',
-        layout: {
-            lowerDeck : generateSeats(6, 4, 'SEATER'), 
-            upperDeck: generateSeats(3, 3, 'SLEEPER')  
-        }
- 
-    }, 
-    {
-        busPartner: "NEOGOBUS", 
-        busType: ["AC", "SEATER"], 
-        amenities: ["Charging Point", "EMERGENCY_EXIT", "WATER"],
-        busNumber: '51695452',
-        layout: {
-            lowerDeck : generateSeats(10, 6, 'SEATER'), 
-            // upperDeck: generateSeats(3, 3, 'SLEEPER')  
-        }
- 
-    }, 
-    {
-        busPartner: "UBERGO", 
-        busType: ["AC", "SEATER"], 
-        amenities: ["Charging Point", "EMERGENCY_EXIT", "WATER"],
-        busNumber: '62458746',
-        layout: {
-            lowerDeck : generateSeats(5, 4, 'SLEEPER'), 
-            // upperDeck: generateSeats(3, 3, 'SLEEPER')  
-        }
- 
-    }, 
-    {
-        busPartner: "IRCTC", 
-        busType: ["AC", "SLEEPER"],  
-        amenities: ["Charging Point", "EMERGENCY_EXIT", "WATER", "FOOD"],
-        busNumber: '45815668',
-        layout: {
-            lowerDeck : generateSeats(5, 4, 'SLEEPER'), 
-            upperDeck: generateSeats(5, 4, 'SLEEPER')  
-        }
- 
-    }, 
-    {
-        busPartner: "GOVT BUS SERVICES", 
-        busType: ["NON_AC", "SEATER" ],  
-        amenities: [""],
-        busNumber: '956482',
-        layout: {
-            lowerDeck : generateSeats(10, 6, 'SEATER'), 
-            // upperDeck: generateSeats(5, 4, 'SLEEPER')  
-        }
- 
-    },
-      {
-        busPartner: "KSRTC", 
-        busType: ["AC", "SEATER" ],  
-        amenities: [""],
-        busNumber: '4561235',
-        layout: {
-            lowerDeck : generateSeats(10, 6, 'SEATER'), 
-            // upperDeck: generateSeats(5, 4, 'SLEEPER')  
-        }
- 
-    },
-      {
-        busPartner: "GSRTC", 
-        busType: ["AC", "SLEEPER", "SETAER" ],  
-        amenities: ["WiFi","Charging Point", "Water", "Food"],
-        busNumber: '7427036',
-        layout: {
-            lowerDeck : generateSeats(6, 4, 'SEATER'), 
-             upperDeck: generateSeats(3, 3, 'SLEEPER')  
-        }
- 
-    },
-      {
-        busPartner: "OSRTC", 
-        busType: ["NON_AC", "SLEEPER", "SEATER" ],  
-        amenities: ["WATER", "Charging Point"],
-        busNumber: '9345189',
-        layout: {
-            lowerDeck : generateSeats(5, 4, 'SEATER'), 
-            upperDeck: generateSeats(5, 4, 'SLEEPER')  
-        }
- 
-    },
-      {
-        busPartner: "Orange Tours and Travels", 
-        busType: ["NON_AC", "SLEEPER" ],  
-        amenities: ["Charging Point","WiFi"],
-        busNumber: '98236781',
-        layout: {
-            lowerDeck : generateSeats(5, 4, 'SEATER'), 
-            upperDeck: generateSeats(5, 4, 'SLEEPER')  
-        }
- 
-    },
-      {
-        busPartner: "zingbus plus", 
-        busType: ["NON_AC", "SLEEPER" ],  
-        amenities: ["Charging Point", "Water", "Food"],
-        busNumber: '2358918',
-        layout: {
-            lowerDeck : generateSeats(6, 4, 'SEATER'), 
-             upperDeck: generateSeats(5, 4, 'SLEEPER')  
-        }
- 
-    }, 
- 
+  {
+    "busPartner": "NEOGOBUS",
+    "busType": ["AC", "SEATER"],
+    "amenities": ["Charging Point", "EMERGENCY_EXIT", "WATER"],
+    "busNumber": "51695452",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SEATER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SEATER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SEATER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SEATER"},
+        {"seatNumber": "1E", "row": 1, "column": 5, "type": "SEATER"},
+        {"seatNumber": "1F", "row": 1, "column": 6, "type": "SEATER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SEATER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SEATER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SEATER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SEATER"},
+        {"seatNumber": "2E", "row": 2, "column": 5, "type": "SEATER"},
+        {"seatNumber": "2F", "row": 2, "column": 6, "type": "SEATER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SEATER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SEATER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SEATER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SEATER"},
+        {"seatNumber": "3E", "row": 3, "column": 5, "type": "SEATER"},
+        {"seatNumber": "3F", "row": 3, "column": 6, "type": "SEATER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SEATER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SEATER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SEATER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SEATER"},
+        {"seatNumber": "4E", "row": 4, "column": 5, "type": "SEATER"},
+        {"seatNumber": "4F", "row": 4, "column": 6, "type": "SEATER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SEATER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SEATER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SEATER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SEATER"},
+        {"seatNumber": "5E", "row": 5, "column": 5, "type": "SEATER"},
+        {"seatNumber": "5F", "row": 5, "column": 6, "type": "SEATER"},
+        {"seatNumber": "6A", "row": 6, "column": 1, "type": "SEATER"},
+        {"seatNumber": "6B", "row": 6, "column": 2, "type": "SEATER"},
+        {"seatNumber": "6C", "row": 6, "column": 3, "type": "SEATER"},
+        {"seatNumber": "6D", "row": 6, "column": 4, "type": "SEATER"},
+        {"seatNumber": "6E", "row": 6, "column": 5, "type": "SEATER"},
+        {"seatNumber": "6F", "row": 6, "column": 6, "type": "SEATER"},
+        {"seatNumber": "7A", "row": 7, "column": 1, "type": "SEATER"},
+        {"seatNumber": "7B", "row": 7, "column": 2, "type": "SEATER"},
+        {"seatNumber": "7C", "row": 7, "column": 3, "type": "SEATER"},
+        {"seatNumber": "7D", "row": 7, "column": 4, "type": "SEATER"},
+        {"seatNumber": "7E", "row": 7, "column": 5, "type": "SEATER"},
+        {"seatNumber": "7F", "row": 7, "column": 6, "type": "SEATER"},
+        {"seatNumber": "8A", "row": 8, "column": 1, "type": "SEATER"},
+        {"seatNumber": "8B", "row": 8, "column": 2, "type": "SEATER"},
+        {"seatNumber": "8C", "row": 8, "column": 3, "type": "SEATER"},
+        {"seatNumber": "8D", "row": 8, "column": 4, "type": "SEATER"},
+        {"seatNumber": "8E", "row": 8, "column": 5, "type": "SEATER"},
+        {"seatNumber": "8F", "row": 8, "column": 6, "type": "SEATER"},
+        {"seatNumber": "9A", "row": 9, "column": 1, "type": "SEATER"},
+        {"seatNumber": "9B", "row": 9, "column": 2, "type": "SEATER"},
+        {"seatNumber": "9C", "row": 9, "column": 3, "type": "SEATER"},
+        {"seatNumber": "9D", "row": 9, "column": 4, "type": "SEATER"},
+        {"seatNumber": "9E", "row": 9, "column": 5, "type": "SEATER"},
+        {"seatNumber": "9F", "row": 9, "column": 6, "type": "SEATER"},
+        {"seatNumber": "10A", "row": 10, "column": 1, "type": "SEATER"},
+        {"seatNumber": "10B", "row": 10, "column": 2, "type": "SEATER"},
+        {"seatNumber": "10C", "row": 10, "column": 3, "type": "SEATER"},
+        {"seatNumber": "10D", "row": 10, "column": 4, "type": "SEATER"},
+        {"seatNumber": "10E", "row": 10, "column": 5, "type": "SEATER"},
+        {"seatNumber": "10F", "row": 10, "column": 6, "type": "SEATER"}
+      ]
+    }
+  },
+  
+  {
+    "busPartner": "UBERGO",
+    "busType": ["AC", "SEATER"],
+    "amenities": ["Charging Point", "EMERGENCY_EXIT", "WATER"],
+    "busNumber": "62458746",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SLEEPER"}
+      ]
+    }
+  },
+  
+  {
+    "busPartner": "IRCTC",
+    "busType": ["AC", "SLEEPER"],
+    "amenities": ["Charging Point", "EMERGENCY_EXIT", "WATER", "FOOD"],
+    "busNumber": "45815668",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SLEEPER"}
+      ],
+      "upperDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SLEEPER"}
+      ]
+    }
+  },
+  
+  {
+    "busPartner": "GOVT BUS SERVICES",
+    "busType": ["NON_AC", "SEATER"],
+    "amenities": [""],
+    "busNumber": "956482",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SEATER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SEATER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SEATER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SEATER"},
+        {"seatNumber": "1E", "row": 1, "column": 5, "type": "SEATER"},
+        {"seatNumber": "1F", "row": 1, "column": 6, "type": "SEATER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SEATER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SEATER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SEATER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SEATER"},
+        {"seatNumber": "2E", "row": 2, "column": 5, "type": "SEATER"},
+        {"seatNumber": "2F", "row": 2, "column": 6, "type": "SEATER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SEATER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SEATER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SEATER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SEATER"},
+        {"seatNumber": "3E", "row": 3, "column": 5, "type": "SEATER"},
+        {"seatNumber": "3F", "row": 3, "column": 6, "type": "SEATER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SEATER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SEATER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SEATER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SEATER"},
+        {"seatNumber": "4E", "row": 4, "column": 5, "type": "SEATER"},
+        {"seatNumber": "4F", "row": 4, "column": 6, "type": "SEATER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SEATER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SEATER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SEATER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SEATER"},
+        {"seatNumber": "5E", "row": 5, "column": 5, "type": "SEATER"},
+        {"seatNumber": "5F", "row": 5, "column": 6, "type": "SEATER"},
+        {"seatNumber": "6A", "row": 6, "column": 1, "type": "SEATER"},
+        {"seatNumber": "6B", "row": 6, "column": 2, "type": "SEATER"},
+        {"seatNumber": "6C", "row": 6, "column": 3, "type": "SEATER"},
+        {"seatNumber": "6D", "row": 6, "column": 4, "type": "SEATER"},
+        {"seatNumber": "6E", "row": 6, "column": 5, "type": "SEATER"},
+        {"seatNumber": "6F", "row": 6, "column": 6, "type": "SEATER"},
+        {"seatNumber": "7A", "row": 7, "column": 1, "type": "SEATER"},
+        {"seatNumber": "7B", "row": 7, "column": 2, "type": "SEATER"},
+        {"seatNumber": "7C", "row": 7, "column": 3, "type": "SEATER"},
+        {"seatNumber": "7D", "row": 7, "column": 4, "type": "SEATER"},
+        {"seatNumber": "7E", "row": 7, "column": 5, "type": "SEATER"},
+        {"seatNumber": "7F", "row": 7, "column": 6, "type": "SEATER"},
+        {"seatNumber": "8A", "row": 8, "column": 1, "type": "SEATER"},
+        {"seatNumber": "8B", "row": 8, "column": 2, "type": "SEATER"},
+        {"seatNumber": "8C", "row": 8, "column": 3, "type": "SEATER"},
+        {"seatNumber": "8D", "row": 8, "column": 4, "type": "SEATER"},
+        {"seatNumber": "8E", "row": 8, "column": 5, "type": "SEATER"},
+        {"seatNumber": "8F", "row": 8, "column": 6, "type": "SEATER"},
+        {"seatNumber": "9A", "row": 9, "column": 1, "type": "SEATER"},
+        {"seatNumber": "9B", "row": 9, "column": 2, "type": "SEATER"},
+        {"seatNumber": "9C", "row": 9, "column": 3,
+
+ "type": "SEATER"},
+        {"seatNumber": "9D", "row": 9, "column": 4, "type": "SEATER"},
+        {"seatNumber": "9E", "row": 9, "column": 5, "type": "SEATER"},
+        {"seatNumber": "9F", "row": 9, "column": 6, "type": "SEATER"},
+        {"seatNumber": "10A", "row": 10, "column": 1, "type": "SEATER"},
+        {"seatNumber": "10B", "row": 10, "column": 2, "type": "SEATER"},
+        {"seatNumber": "10C", "row": 10, "column": 3, "type": "SEATER"},
+        {"seatNumber": "10D", "row": 10, "column": 4, "type": "SEATER"},
+        {"seatNumber": "10E", "row": 10, "column": 5, "type": "SEATER"},
+        {"seatNumber": "10F", "row": 10, "column": 6, "type": "SEATER"}
+      ]
+    }
+  },
+  
+  {
+    "busPartner": "XTRABUS",
+    "busType": ["AC", "SLEEPER"],
+    "amenities": ["Charging Point", "EMERGENCY_EXIT", "WATER", "FOOD"],
+    "busNumber": "75132648",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SLEEPER"}
+      ],
+      "upperDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SLEEPER"}
+      ]
+    }
+  },
+
+  {
+    "busPartner": "GSRTC",
+    "busType": ["AC", "SLEEPER", "SEATER"],
+    "amenities": ["WiFi", "Charging Point", "Water", "Food"],
+    "busNumber": "7427036",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SEATER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SEATER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SEATER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SEATER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SEATER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SEATER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SEATER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SEATER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SEATER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SEATER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SEATER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SEATER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SEATER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SEATER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SEATER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SEATER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SEATER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SEATER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SEATER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SEATER"},
+        {"seatNumber": "6A", "row": 6, "column": 1, "type": "SEATER"},
+        {"seatNumber": "6B", "row": 6, "column": 2, "type": "SEATER"},
+        {"seatNumber": "6C", "row": 6, "column": 3, "type": "SEATER"},
+        {"seatNumber": "6D", "row": 6, "column": 4, "type": "SEATER"}
+      ],
+      "upperDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"}
+      ]
+    }
+  },
+
+  {
+    "busPartner": "OSRTC",
+    "busType": ["NON_AC", "SLEEPER", "SEATER"],
+    "amenities": ["WATER", "Charging Point"],
+    "busNumber": "9345189",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SEATER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SEATER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SEATER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SEATER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SEATER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SEATER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SEATER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SEATER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SEATER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SEATER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SEATER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SEATER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SEATER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SEATER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SEATER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SEATER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SEATER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SEATER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SEATER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SEATER"}
+      ],
+      "upperDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SLEEPER"}
+      ]
+    }
+  },
+
+  {
+    "busPartner": "Orange Tours and Travels",
+    "busType": ["NON_AC", "SLEEPER"],
+    "amenities": ["Charging Point", "WiFi"],
+    "busNumber": "98236781",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SEATER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SEATER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SEATER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SEATER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SEATER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SEATER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SEATER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SEATER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SEATER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SEATER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SEATER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SEATER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SEATER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SEATER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SEATER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SEATER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SEATER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SEATER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SEATER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SEATER"}
+      ],
+      "upperDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SLEEPER"}
+      ]
+    }
+  },
+
+  {
+    "busPartner": "zingbus plus",
+    "busType": ["NON_AC", "SLEEPER"],
+    "amenities": ["Charging Point", "Water", "Food"],
+    "busNumber": "2358918",
+    "layout": {
+      "lowerDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SEATER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SEATER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SEATER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SEATER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SEATER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SEATER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SEATER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SEATER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SEATER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SEATER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SEATER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SEATER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SEATER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SEATER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SEATER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SEATER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SEATER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SEATER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SEATER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SEATER"},
+        {"seatNumber": "6A", "row": 6, "column": 1, "type": "SEATER"},
+        {"seatNumber": "6B", "row": 6, "column": 2, "type": "SEATER"},
+        {"seatNumber": "6C", "row": 6, "column": 3, "type": "SEATER"},
+        {"seatNumber": "6D", "row": 6, "column": 4, "type": "SEATER"}
+      ],
+      "upperDeck": [
+        {"seatNumber": "1A", "row": 1, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "1B", "row": 1, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "1C", "row": 1, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "1D", "row": 1, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "2A", "row": 2, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "2B", "row": 2, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "2C", "row": 2, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "2D", "row": 2, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "3A", "row": 3, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "3B", "row": 3, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "3C", "row": 3, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "3D", "row": 3, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "4A", "row": 4, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "4B", "row": 4, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "4C", "row": 4, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "4D", "row": 4, "column": 4, "type": "SLEEPER"},
+        {"seatNumber": "5A", "row": 5, "column": 1, "type": "SLEEPER"},
+        {"seatNumber": "5B", "row": 5, "column": 2, "type": "SLEEPER"},
+        {"seatNumber": "5C", "row": 5, "column": 3, "type": "SLEEPER"},
+        {"seatNumber": "5D", "row": 5, "column": 4, "type": "SLEEPER"}
+      ]
+    }
+  }
 ]
 ```
 ### Trip data
